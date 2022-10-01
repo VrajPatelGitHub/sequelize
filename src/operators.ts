@@ -513,7 +513,7 @@ interface OpTypes {
    */
   readonly values: unique symbol;
   /**
-   * Operator ?|
+   * Operator ?| (PG only)
    *
    * ```js
    * [Op.anyKeyExists]: ['studentId', 'teacherId']
@@ -525,7 +525,7 @@ interface OpTypes {
    */
   readonly anyKeyExists: unique symbol;
   /**
-   * Operator ?&
+   * Operator ?& (PG only)
    *
    * ```js
    * [Op.allKeysExist]: ['studentId', 'teacherId']
