@@ -570,6 +570,38 @@ export interface WhereOperators<AttributeType = any> {
    * https://www.postgresql.org/docs/14/functions-range.html
    */
   [Op.adjacent]?: WhereOperators<AttributeType>[typeof Op.strictLeft];
+
+  /**
+   * PG only
+   *
+   * Whether any of these array strings exist as top-level keys.
+   *
+   * @example
+   * ```typescript
+   * { metadata: { [Op.anyKeyExists]: ['studentId', 'teacherId'] } }
+   * // results in
+   * // "metadata" ?| array['studentId', 'teacherId']
+   * ```
+   *
+   * https://www.postgresql.org/docs/14/functions-range.html
+   */
+  [Op.anyKeyExists]?: WhereOperators<AttributeType>[typeof Op.anyKeyExists];
+
+  /**
+   * PG only
+   *
+   * Whether all of these array strings exist as top-level keys.
+   *
+   * @example
+   * ```typescript
+   * { metadata: { [Op.allKeysExist]: ['studentId', 'teacherId'] } }
+   * // results in
+   * // "metadata" ?& array['studentId', 'teacherId']
+   * ```
+   *
+   * https://www.postgresql.org/docs/14/functions-range.html
+   */
+  [Op.allKeysExist]?: WhereOperators<AttributeType>[typeof Op.allKeysExist];
 }
 
 /**
