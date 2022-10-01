@@ -42,6 +42,9 @@ describe(Support.getTestDialectTeaser('Operators'), () => {
         full_name: {
           type: DataTypes.STRING,
         },
+        metadata: {
+          type: DataTypes.JSONB,
+        },
       });
     });
 
