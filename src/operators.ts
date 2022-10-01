@@ -513,53 +513,29 @@ interface OpTypes {
    */
   readonly values: unique symbol;
   /**
-   * Operator ?
-   *
-   * ```js
-   * [Op.hasKey]: 'studentId'
-   * ```
-   * In SQL
-   * ```sql
-   * ? 'studentId'
-   * ```
-   */
-  readonly hasKey: unique symbol;
-  /**
    * Operator ?|
    *
    * ```js
-   * [Op.anyKeys]: ['studentId', 'teacherId']
+   * [Op.anyKeyExists]: ['studentId', 'teacherId']
    * ```
    * In SQL
    * ```sql
    * ?| array['studentId', 'teacherId']
    * ```
    */
-  readonly anyKeys: unique symbol;
+  readonly anyKeyExists: unique symbol;
   /**
    * Operator ?&
    *
    * ```js
-   * [Op.allKeys]: ['studentId', 'teacherId']
+   * [Op.allKeysExist]: ['studentId', 'teacherId']
    * ```
    * In SQL
    * ```sql
    * ?& array['studentId', 'teacherId']
    * ```
    */
-  readonly allKeys: unique symbol;
-  /**
-   * Operator ||
-   *
-   * ```js
-   * [Op.concatenate]: sequelize.cast('["studentId", "teacherId"]', 'jsonb')
-   * ```
-   * In SQL
-   * ```sql
-   * || '["studentId", "teacherId"]'::jsonb
-   * ```
-   */
-  readonly concatenate: unique symbol;
+  readonly allKeysExist: unique symbol;
 }
 
 // Note: These symbols are registered in the Global Symbol Registry
@@ -611,8 +587,6 @@ export const Op: OpTypes = {
   placeholder: Symbol.for('placeholder'),
   join: Symbol.for('join'),
   match: Symbol.for('match'),
-  hasKey: Symbol.for('hasKey'),
-  anyKeys: Symbol.for('anyKeys'),
-  allKeys: Symbol.for('allKeys'),
-  concatenate: Symbol.for('concatenate'),
+  anyKeyExists: Symbol.for('anyKeyExists'),
+  allKeysExist: Symbol.for('allKeysExist'),
 } as OpTypes;
