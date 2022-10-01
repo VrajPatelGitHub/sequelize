@@ -23,6 +23,10 @@ describe(Support.getTestDialectTeaser('Operators'), () => {
           type: DataTypes.STRING,
           field: 'full_name',
         },
+        metadata: {
+          type: DataTypes.JSONB,
+          field: 'metadata',
+        },
       }, {
         tableName: 'users',
         timestamps: false,
@@ -81,6 +85,29 @@ describe(Support.getTestDialectTeaser('Operators'), () => {
     }
 
     if (dialect === 'postgres') {
+      describe('top level keys', () => {
+        it('should properly find any of array strings exist as top-level keys', async function () {
+          await this.User.create({ name: 'Foobar', metadata: JSON.stringify({ threat: "unclassified", teacherId: 1, studentId: 2 }) });
+          const user = await this.User.findOne({
+            where: {
+              name: { [Op.anyKeyExists]: ['studentId'] },
+            },
+          });
+          // TODO: modify this instead of ok
+          expect(user).to.be.ok;
+        });
+        it('should properly find all of array strings exist as top-level keys', async function () {
+         await this.User.create({ name: 'Foobar', metadata: JSON.stringify({ threat: "unclassified", teacherId: 1, studentId: 2 }) });
+          const user = await this.User.findOne({
+            where: {
+              name: { [Op.allKeysExist]: ['studentId', 'teacherId'] },
+            },
+          });
+          // TODO: modify this instead of ok
+          expect(user).to.be.ok;
+        });
+      });
+
       describe('case insensitive', () => {
         it('should work with a case-insensitive regexp where', async function () {
           await this.User.create({ name: 'Foobar' });
