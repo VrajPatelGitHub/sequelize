@@ -87,7 +87,7 @@ describe(Support.getTestDialectTeaser('Operators'), () => {
     if (dialect === 'postgres') {
       describe('top level keys', () => {
         it('should properly find any of array strings exist as top-level keys', async function () {
-          await this.User.create({ name: 'Foobar', metadata: JSON.stringify({ threat: "unclassified", teacherId: 1, studentId: 2 }) });
+          await this.User.create({ name: 'Foobar', metadata: JSON.stringify({ threat: 'unclassified', teacherId: 1, studentId: 2 }) });
           const user = await this.User.findOne({
             where: {
               name: { [Op.anyKeyExists]: ['studentId'] },
@@ -97,7 +97,7 @@ describe(Support.getTestDialectTeaser('Operators'), () => {
           expect(user).to.be.ok;
         });
         it('should properly find all of array strings exist as top-level keys', async function () {
-         await this.User.create({ name: 'Foobar', metadata: JSON.stringify({ threat: "unclassified", teacherId: 1, studentId: 2 }) });
+          await this.User.create({ name: 'Foobar', metadata: JSON.stringify({ threat: 'unclassified', teacherId: 1, studentId: 2 }) });
           const user = await this.User.findOne({
             where: {
               name: { [Op.allKeysExist]: ['studentId', 'teacherId'] },
