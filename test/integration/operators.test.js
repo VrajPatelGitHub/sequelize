@@ -28,27 +28,6 @@ describe(Support.getTestDialectTeaser('Operators'), () => {
         timestamps: false,
       });
 
-      this.UserPg = this.sequelize.define('userPg', {
-        id: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          primaryKey: true,
-          autoIncrement: true,
-          field: 'userId',
-        },
-        name: {
-          type: DataTypes.STRING,
-          field: 'full_name',
-        },
-        metadata: {
-          type: DataTypes.JSONB,
-          field: 'metadata',
-        },
-      }, {
-        tableName: 'users_pg',
-        timestamps: false,
-      });
-
       await this.sequelize.getQueryInterface().createTable('users', {
         userId: {
           type: DataTypes.INTEGER,
@@ -61,20 +40,43 @@ describe(Support.getTestDialectTeaser('Operators'), () => {
         },
       });
 
-      await this.sequelize.getQueryInterface().createTable('users_pg', {
-        userId: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          primaryKey: true,
-          autoIncrement: true,
-        },
-        full_name: {
-          type: DataTypes.STRING,
-        },
-        metadata: {
-          type: DataTypes.JSONB,
-        },
-      });
+      if (dialect === 'postgres') {
+        this.UserPg = this.sequelize.define('userPg', {
+          id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+            field: 'userId',
+          },
+          name: {
+            type: DataTypes.STRING,
+            field: 'full_name',
+          },
+          metadata: {
+            type: DataTypes.JSONB,
+            field: 'metadata',
+          },
+        }, {
+          tableName: 'users_pg',
+          timestamps: false,
+        });
+
+        await this.sequelize.getQueryInterface().createTable('users_pg', {
+          userId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+          },
+          full_name: {
+            type: DataTypes.STRING,
+          },
+          metadata: {
+            type: DataTypes.JSONB,
+          },
+        });
+      }
     });
 
     if (['mysql', 'postgres'].includes(dialect)) {
