@@ -583,7 +583,7 @@ export interface WhereOperators<AttributeType = any> {
    * // "metadata" ?| array['studentId', 'teacherId']
    * ```
    *
-   * https://www.postgresql.org/docs/14/functions-range.html
+   * https://www.postgresql.org/docs/9.6/functions-json.html
    */
   [Op.anyKeyExists]?: WhereOperators<AttributeType>[typeof Op.anyKeyExists];
 
@@ -599,7 +599,7 @@ export interface WhereOperators<AttributeType = any> {
    * // "metadata" ?& array['studentId', 'teacherId']
    * ```
    *
-   * https://www.postgresql.org/docs/14/functions-range.html
+   * https://www.postgresql.org/docs/9.6/functions-json.html
    */
   [Op.allKeysExist]?: WhereOperators<AttributeType>[typeof Op.allKeysExist];
 }
