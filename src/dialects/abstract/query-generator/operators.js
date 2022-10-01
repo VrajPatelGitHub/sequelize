@@ -47,10 +47,8 @@ const OperatorHelpers = {
     [Op.col]: 'COL',
     [Op.placeholder]: '$$PLACEHOLDER$$',
     [Op.match]: '@@',
-    [Op.hasKey]: '?',
-    [Op.anyKeys]: '?|',
-    [Op.allKeys]: '?&',
-    [Op.concatenate]: '||',
+    [Op.anyKeyExists]: '?|',
+    [Op.allKeysExist]: '?&',
   },
 
   OperatorsAliasMap: {},
