@@ -552,7 +552,7 @@ interface OpTypes {
    * Operator ||
    *
    * ```js
-   * [Op.allKeys]: sequelize.cast('["studentId", "teacherId"]', 'jsonb')
+   * [Op.concatenate]: sequelize.cast('["studentId", "teacherId"]', 'jsonb')
    * ```
    * In SQL
    * ```sql
