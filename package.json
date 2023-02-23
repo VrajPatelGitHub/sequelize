@@ -44,7 +44,7 @@
     "@types/debug": "^4.1.7",
     "@types/inflection": "^1.13.0",
     "@types/validator": "^13.7.5",
-    "dayjs": "^1.11.5",
+    "dayjs": "^1.11.7",
     "debug": "^4.3.4",
     "dottie": "^2.0.2",
     "inflection": "^1.13.2",
