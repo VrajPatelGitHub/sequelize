@@ -46,7 +46,7 @@
     "@types/validator": "^13.7.5",
     "dayjs": "^1.11.5",
     "debug": "^4.3.4",
-    "dottie": "^2.0.2",
+    "dottie": "^2.0.3",
     "inflection": "^1.13.2",
     "lodash": "^4.17.21",
     "pg-connection-string": "^2.5.0",
