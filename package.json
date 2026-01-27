@@ -48,7 +48,7 @@
     "debug": "^4.3.4",
     "dottie": "^2.0.2",
     "inflection": "^1.13.2",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "pg-connection-string": "^2.5.0",
     "retry-as-promised": "^6.0.0",
     "semver": "^7.3.7",
